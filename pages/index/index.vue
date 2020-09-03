@@ -28,9 +28,9 @@
         <div class="top" :class="classType[item.state]">{{ item.title }}</div>
         <div class="content">
           <p class="name">{{ item.name }}</p>
-          <p class="address">
-						<span>地址：{{ item.address }}</span>
-            <span class="distance">距离：{{ item.distance }}</span>
+          <p class="address-distance">
+            <span class="address">地址：{{ item.address }}</span>
+            <span class="distance">距离: {{ item.distance }}</span>
           </p>
         </div>
       </div>
@@ -56,24 +56,37 @@ export default {
           title: '3',
           src: '../../static/images/notice_02.jpg'
         }
-			],
-			list: [{
-				title: '可预约',
-				state: 0,
-				name: '西藏昌都市工商行政管局',
-				address: '西藏自治区昌都市昌都路4号',
-				distance: '1.2km'
-			}, {
-				title: '已满',
-				state: 1,
-				name: '西藏昌都市工商行政管局',
-				address: '西藏自治区昌都市昌都路4号',
-				distance: '2.2km'
-			}],
-			classType: ['reservation', 'no-reservation']
+      ],
+      list: [
+        {
+          title: '可预约',
+          state: 0,
+          name: '西藏昌都市工商行政管局',
+          address: '西藏自治区昌都市昌都路4号',
+          distance: '1.2km'
+        },
+        {
+          title: '已满',
+          state: 1,
+          name: '西藏昌都市工商行政管局',
+          address: '西藏自治区昌都市昌都路4号',
+          distance: '2.2km'
+				},
+				{
+					title: '可预约',
+          state: 0,
+          name: '武汉市工商行政管局',
+          address: '武汉市洪山区长风路4号哈哈哈哈哈哈哈哈哈哈哈哈',
+          distance: '3.2km'
+				}
+      ],
+      classType: ['reservation', 'no-reservation']
     }
   },
-  onLoad() {
+	onLoad() {},
+	onShow() {
+	},
+	computed: {
 	},
   methods: {}
 }
@@ -151,7 +164,7 @@ export default {
     }
     .list-item {
       position: relative;
-      margin-top: 25upx;
+      margin-top: 50upx;
       padding: 85upx 20upx 50upx;
       background-color: #fff;
       box-shadow: 4px 4px 8px #ebecf2;
@@ -162,8 +175,8 @@ export default {
         transform: translate(-50%, -50%);
         top: 0rpx;
         width: 144upx;
-				height: 64upx;
-				color: #fff;
+        height: 64upx;
+        color: #fff;
         @include center();
         box-shadow: 4px 4px 10px #ebecf2;
         &::after,
@@ -177,46 +190,55 @@ export default {
           border: 10upx solid transparent;
         }
         &::after {
-					left: -9px;
+          left: -9px;
         }
         &::before {
-					right: -10px;
-					transform: rotate(90deg);
-				}
-				&.reservation {
-					background-color: #4381ed;
-				}
+          right: -10px;
+          transform: rotate(90deg);
+        }
+        &.reservation {
+          background-color: #4381ed;
+        }
         &.reservation::before,
         &.reservation::after {
           border-right: 10upx solid #2f5fb1;
           border-bottom: 10upx solid #2f5fb1;
-				}
-				&.no-reservation {
-					background-color: #ed5a55;
-				}
-				&.no-reservation::before, &.no-reservation::after {
-					border-right: 10upx solid #ac2525;
+        }
+        &.no-reservation {
+          background-color: #ed5a55;
+        }
+        &.no-reservation::before,
+        &.no-reservation::after {
+          border-right: 10upx solid #ac2525;
           border-bottom: 10upx solid #ac2525;
-				}
+        }
       }
       .content {
-				>p {
-					line-height: 55upx;
-				}
+        > p {
+          line-height: 55upx;
+        }
         .name {
           font-size: 30upx;
           font-weight: 700;
         }
-        .address {
+        .address-distance {
           font-size: 28upx;
           font-weight: 500;
-					color: #5a5a5a;
-					display: flex;
+          color: #5a5a5a;
+          display: flex;
 					justify-content: space-between;
-					.distance {
-						font-size: 26upx;
-            color: #b9b9b9;
+					.address {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;  /*不换行*/
+						flex: 1;
 					}
+          .distance {
+            font-size: 26upx;
+						color: #b9b9b9;
+						margin-left: 55upx;
+						width: 170upx;
+          }
         }
       }
     }
