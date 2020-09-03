@@ -13,9 +13,9 @@
 			}
 		},
 		{
-			"path": "pages/news/news",
+			"path": "pages/record/record",
 			"style": {
-				"navigationBarTitleText": "新闻"
+				"navigationBarTitleText": "预约记录"
 			}
 		},
 		{
@@ -50,10 +50,10 @@
 				"text": "博客"
 			},
 			{
-				"pagePath": "pages/news/news",
+				"pagePath": "pages/record/record",
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
-				"text": "新闻"
+				"text": "预约记录"
 			},
 			{
 				"pagePath": "pages/photo/photo",
