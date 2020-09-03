@@ -24,13 +24,13 @@
       </div>
       <div class="btn-box" v-if="item.state !== 3">
 				<template v-if="item.state === 0">
-					<span>取消预约</span>
+					<span class="cancel">取消预约</span>
 				</template>
 				<template v-else-if="item.state === 1 || item.state === 4">
-					<span>再次预约</span>
+					<span class="again">再次预约</span>
 				</template>
 				<template v-else-if="item.state === 2">
-					<span>再次预约</span>
+					<span class="again">再次预约</span>
 					<span class="evaluate">立即评价</span>
 				</template>
 			</div>
@@ -213,6 +213,15 @@ export default {
 					background-color: #f1f1f1;
 					position: absolute;
 					left: 0;
+				}
+				&.cancel {
+					color: #f66767;
+				}
+				&.again {
+					color: #3174e9;
+				}
+				&.evaluate {
+					color: #f4943e;
 				}
 			}
 		}
