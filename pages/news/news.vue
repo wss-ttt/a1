@@ -153,21 +153,27 @@ export default {
 					font-size: 26upx;
 					width: 128upx;
 					height: 48upx;
+					color: #fff;
 					@include center();
 					border-top-left-radius: 24upx;
 					border-bottom-left-radius: 24upx;
+					// 未赴约
 					&.no-appointment {
 						background-color: #f66767;
 					}
+					// 爽约
 					&.break-appointment {
 						background-color: #f4943e;
 					}
+					// 已赴约
 					&.appointment {
 						background-color: #3174e9;
 					}
+					// 办理中
 					&.in-process {
 						background-color: #b4b4b4;
 					}
+					// 已取消
 					&.cancelled {
 						background-color: #18cbcf;
 					}
