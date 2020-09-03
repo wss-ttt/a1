@@ -7,9 +7,9 @@
 			}
 		},
 		{
-			"path": "pages/blog/blog",
+			"path": "pages/news/news",
 			"style": {
-				"navigationBarTitleText": "博客"
+				"navigationBarTitleText": "新闻"
 			}
 		},
 		{
@@ -44,10 +44,10 @@
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/blog/blog",
+				"pagePath": "pages/news/news",
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
-				"text": "博客"
+				"text": "新闻"
 			},
 			{
 				"pagePath": "pages/record/record",
