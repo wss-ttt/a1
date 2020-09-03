@@ -24,13 +24,13 @@
     </div>
     <div class="outlets">
       <div class="title">预约网点</div>
-      <div class="list-item">
-        <div class="top reservation">可预约</div>
+      <div class="list-item" v-for="(item, index) in list" :key="index">
+        <div class="top" :class="classType[item.state]">{{ item.title }}</div>
         <div class="content">
-          <p class="name">西藏昌都市工商行政管局</p>
+          <p class="name">{{ item.name }}</p>
           <p class="address">
-						<span>地址：西藏自治区昌都市昌都路4号</span>
-            <span class="distance">距离：1.2km</span>
+						<span>地址：{{ item.address }}</span>
+            <span class="distance">距离：{{ item.distance }}</span>
           </p>
         </div>
       </div>
@@ -56,10 +56,25 @@ export default {
           title: '3',
           src: '../../static/images/notice_02.jpg'
         }
-      ]
+			],
+			list: [{
+				title: '可预约',
+				state: 0,
+				name: '西藏昌都市工商行政管局',
+				address: '西藏自治区昌都市昌都路4号',
+				distance: '1.2km'
+			}, {
+				title: '已满',
+				state: 1,
+				name: '西藏昌都市工商行政管局',
+				address: '西藏自治区昌都市昌都路4号',
+				distance: '2.2km'
+			}],
+			classType: ['reservation', 'no-reservation']
     }
   },
-  onLoad() {},
+  onLoad() {
+	},
   methods: {}
 }
 </script>
@@ -175,7 +190,14 @@ export default {
         &.reservation::after {
           border-right: 10upx solid #2f5fb1;
           border-bottom: 10upx solid #2f5fb1;
-        }
+				}
+				&.no-reservation {
+					background-color: #ed5a55;
+				}
+				&.no-reservation::before, &.no-reservation::after {
+					border-right: 10upx solid #ac2525;
+          border-bottom: 10upx solid #ac2525;
+				}
       }
       .content {
 				>p {
