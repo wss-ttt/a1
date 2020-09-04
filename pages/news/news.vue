@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="item" v-for="(item, index) in list" :key="index">
-      <news-item :newsItem="item"></news-item>
-    </div>
+    <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item"></news-item>
   </div>
 </template>
 
@@ -78,7 +76,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.item {
-	margin-bottom: 10upx;
+.wrapper {
+  padding: 15upx;
+  .item {
+    margin-bottom: 10upx;
+  }
 }
 </style>
