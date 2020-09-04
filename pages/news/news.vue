@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item" @close="close(index)"></news-item>
+    <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item" @close="close(index)" @click="goDetail(item)"></news-item>
 		<div v-if="!list.length" class="no-data">请求中...</div>
     <div v-if="list.length" class="load-more">加载更多...</div>
   </div>
@@ -52,7 +52,7 @@ export default {
                 title: news.title,
                 imageUrl: news.cover,
                 source: news.author_name,
-                commentCount: news.comments_count,
+								commentCount: news.comments_count,
                 postId: news.post_id
               }
             })
@@ -90,6 +90,11 @@ export default {
 					}
 				}
 			})
+		},
+		goDetail(item) {
+			uni.navigateTo({
+				url: '/pages/details/details?query=' + encodeURIComponent(JSON.stringify(item))
+			}) 
 		}
   }
 }

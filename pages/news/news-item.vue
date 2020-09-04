@@ -1,5 +1,5 @@
 <template>
-  <div class="news-item">
+  <div class="news-item" @click="click">
     <div class="content">
       <div class="pic">
         <img :src="newsItem.imageUrl" />
@@ -40,6 +40,9 @@ export default {
   updated() {},
   destroyed() {},
   methods: {
+    click() {
+      this.$emit('click')
+    },
     close() {
       this.$emit('close')
     }
