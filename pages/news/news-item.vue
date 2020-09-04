@@ -12,7 +12,7 @@
       <span>{{newsItem.source}}</span>
       <span>{{newsItem.commentCount}}条评论</span>
       <span>{{newsItem.datetime}}</span>
-      <span class="close">&times;</span>
+      <span class="close" @click.stop="close">&times;</span>
     </div>
   </div>
 </template>
@@ -39,7 +39,11 @@ export default {
   deactivated() {},
   updated() {},
   destroyed() {},
-  methods: {},
+  methods: {
+    close() {
+      this.$emit('close')
+    }
+  },
   filters: {}
 }
 </script>

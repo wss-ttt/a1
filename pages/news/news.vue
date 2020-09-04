@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item"></news-item>
+    <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item" @close="close(index)"></news-item>
   </div>
 </template>
 
@@ -70,7 +70,18 @@ export default {
         s4() +
         s4()
       ).toUpperCase()
-    }
+		},
+		close(index) {
+			uni.showModal({
+				content: '不感兴趣',
+				success: res => {
+					if(res.confirm) {
+						// 删除数据
+						this.list.splice(index, 1)
+					}
+				}
+			})
+		}
   }
 }
 </script>
