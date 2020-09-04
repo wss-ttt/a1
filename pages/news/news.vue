@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
     <news-item :newsItem="item" v-for="(item, index) in list" :key="index" class="item" @close="close(index)"></news-item>
+		<div v-if="!list.length" class="no-data">请求中...</div>
+    <div v-if="list.length" class="load-more">加载更多...</div>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ export default {
   data() {
     return {
       requestParams: {
+				columnId: undefined,
+				minId: undefined,
         pageSize: 10
       },
       list: []
@@ -22,8 +26,12 @@ export default {
   async created() {
     this.requestParams.time = new Date().getTime() + ''
     this.list = await this.getData()
-    console.log(this.list)
-  },
+	},
+	async onReachBottom() {
+		let res = await this.getData()
+		this.list = this.list.concat(res)
+		
+	},
   methods: {
     getData() {
       return new Promise((resolve, reject) => {
@@ -31,6 +39,7 @@ export default {
           url: 'https://unidemo.dcloud.net.cn/api/news',
           data: this.requestParams,
           success: res => {
+						this.requestParams.minId = res.data[res.data.length - 1].id
             // 处理数据
             let data = res.data.map(news => {
               return {
@@ -87,10 +96,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wrapper {
   padding: 15upx;
   .item {
     margin-bottom: 10upx;
+	}
+	.no-data {
+    @include center;
+  }
+  .load-more {
+    height: 80upx;
+    @include center;
   }
 }
 </style>
