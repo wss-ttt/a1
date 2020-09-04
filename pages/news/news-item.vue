@@ -41,7 +41,9 @@ export default {
   destroyed() {},
   methods: {
     click() {
-      this.$emit('click')
+      uni.navigateTo({
+				url: '/pages/details/details?query=' + encodeURIComponent(JSON.stringify(this.newsItem))
+			}) 
     },
     close() {
       this.$emit('close')
