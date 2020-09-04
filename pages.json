@@ -21,7 +21,8 @@
 		{
 			"path": "pages/photo/photo",
 			"style": {
-				"navigationBarTitleText": "相册"
+				"navigationBarTitleText": "相册",
+				"enablePullDownRefresh": true
 			}
 		}
 	],
