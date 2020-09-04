@@ -10,26 +10,33 @@
 export default {
   data() {
     return {
+      loading: false,
       list: []
     }
   },
   mounted() {
-    this.loadData()
+    this.loadMore()
   },
   onPullDownRefresh() {
-    this.loadData()
+    this.loadMore()
   },
   onReachBottom() {
-    this.loadData()
+    // 如果在请求中,直接返回
+    if (this.loading) return
+    this.loading = true
+    this.loadMore()
   },
   methods: {
-    loadData(time) {
+    loadMore(time) {
       setTimeout(() => {
         for (let i = 0; i < 5; i++) {
           this.list.push(i)
         }
         // 数据请求完成之后停止下拉刷新
         uni.stopPullDownRefresh()
+
+        // 改变状态
+        this.loading = false
       }, time || 1000)
     }
   }
