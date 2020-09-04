@@ -1,6 +1,8 @@
 <template>
   <view class="wrapper">
-    <div v-for="(item, index) in list" :key="index">好好学习 {{ item }}</div>
+    <div class="item" v-for="(item, index) in list" :key="index">姓名: {{ item }}</div>
+    <div v-if="!list.length" class="no-data">请求中...</div>
+    <div v-if="list.length" class="load-more">加载更多...</div>
   </view>
 </template>
 
@@ -11,31 +13,48 @@ export default {
       list: []
     }
   },
+  mounted() {
+    this.loadData()
+  },
   onPullDownRefresh() {
     this.loadData()
   },
+  onReachBottom() {
+    this.loadData()
+  },
   methods: {
-    loadData() {
+    loadData(time) {
       setTimeout(() => {
         for (let i = 0; i < 5; i++) {
-          this.list.unshift(i)
+          this.list.push(i)
         }
         // 数据请求完成之后停止下拉刷新
         uni.stopPullDownRefresh()
-      }, 1000)
+      }, time || 1000)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  height: 100%;
-  overflow: auto;
-  background: #ccc;
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-uni-page-body,
-uni-page-refresh {
-  height: 100%;
+.wrapper {
+  .item {
+    height: 300upx;
+    @include center;
+    border: 1px solid #ccc;
+    margin-bottom: 10upx;
+  }
+  .no-data {
+    @include center;
+  }
+  .load-more {
+    height: 80upx;
+    @include center;
+  }
 }
 </style>
