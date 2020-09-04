@@ -24,6 +24,16 @@
 				"navigationBarTitleText": "相册",
 				"enablePullDownRefresh": true
 			}
+		},
+		{
+			"path": "pages/details/details",
+			"style": {}
+		},
+		{
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "测试"
+			}
 		}
 	],
 	"globalStyle": {
@@ -61,6 +71,12 @@
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
 				"text": "相册"
+			},
+			{
+				"pagePath": "pages/test/test",
+				"iconPath": "static/images/index.png",
+				"selectedIconPath": "static/images/selectindex.png",
+				"text": "test"
 			}
 		]
 	}
