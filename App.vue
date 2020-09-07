@@ -19,6 +19,27 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+/*边框*/
+.b-b:after,
+.b-t:after {
+	position: absolute;
+	z-index: 3;
+	left: 0;
+	right: 0;
+	height: 0;
+	content: '';
+	transform: scaleY(0.5);
+	border-bottom: 1px solid $border-color-base;
+}
+
+.b-b:after {
+	bottom: 0;
+}
+
+.b-t:after {
+	top: 0;
+}
+
 /*
 		全局公共样式和字体图标
 	*/
