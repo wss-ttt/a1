@@ -34,6 +34,17 @@
 			"style": {
 				"navigationBarTitleText": "测试"
 			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#5188E9"
+			}
+		},
+		{
+			"path": "components/list-cell/list-cell",
+			"style": {}
 		}
 	],
 	"globalStyle": {
@@ -77,6 +88,12 @@
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
 				"text": "test"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/images/index.png",
+				"selectedIconPath": "static/images/selectindex.png",
+				"text": "我的"
 			}
 		]
 	}
