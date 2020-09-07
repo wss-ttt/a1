@@ -19,6 +19,9 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+	background: #f1f1f1; // 全局设置背景色
+}
 /*边框*/
 .b-b:after,
 .b-t:after {
