@@ -41,6 +41,24 @@
 				"navigationBarTitleText": "",
 				"navigationBarBackgroundColor": "#5188E9"
 			}
+		},
+		{
+			"path": "pages/point/point",
+			"style": {
+				"navigationBarTitleText": "我的成长值"
+			}
+		},
+		{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+		},
+		{
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "个人设置"
+			}
 		}
 	],
 	"globalStyle": {
