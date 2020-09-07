@@ -79,3 +79,10 @@ $uni-font-size-paragraph:30rpx;
 $border-color-dark: #DCDFE6;
 $border-color-base: #E4E7ED;
 $border-color-light: #EBEEF5;
+
+
+@mixin center {
+ display: flex; 
+ justify-content: center;
+ align-items: center;
+}
