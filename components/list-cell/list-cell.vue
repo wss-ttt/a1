@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     eventClick() {
-      this.$emit('eventClick')
+      this.$emit('click')
     }
   }
 }
