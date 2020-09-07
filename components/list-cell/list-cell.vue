@@ -1,115 +1,122 @@
 <template>
-	<view class="content">
-		<view class="mix-list-cell" :class="border" @click="eventClick" hover-class="cell-hover" :hover-stay-time="50">
-			<text v-if="icon" :class="['cell-icon', iconFamily, icon]" :style="[{
+  <div class="content">
+    <div
+      class="list-cell"
+      :class="border"
+      @click="eventClick"
+      hover-class="cell-hover"
+      :hover-stay-time="50"
+    >
+      <span
+        v-if="icon"
+        :class="['cell-icon', iconFamily, icon]"
+        :style="[{
 					color: iconColor,
-				}]"></text>
-			<text class="cell-title clamp">{{ title }}</text>
-			<text v-if="tips" class="cell-tip">{{ tips }}</text>
-			<text class="cell-more yticon" :class="typeList[navigateType]"></text>
-		</view>
-
-	</view>
+				}]"
+      ></span>
+      <span class="cell-title clamp">{{ title }}</span>
+      <span v-if="tips" class="cell-tip">{{ tips }}</span>
+      <span class="cell-more yticon" :class="typeList[navigateType]"></span>
+    </div>
+  </div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				typeList: {
-					left: 'icon-zuo',
-					right: 'icon-you',
-					up: 'icon-shang',
-					down: 'icon-xia'
-				},
-			}
-		},
-		props: {
-			icon: {
-				type: String,
-				default: ''
-			},
-			title: {
-				type: String,
-				default: '标题'
-			},
-			tips: {
-				type: String,
-				default: ''
-			},
-			navigateType: {
-				type: String,
-				default: 'right'
-			},
-			border: {
-				type: String,
-				default: 'b-b'
-			},
-			hoverClass: {
-				type: String,
-				default: 'cell-hover'
-			},
-			iconColor: {
-				type: String,
-				default: '#333'
-			},
-			iconFamily: {
-				type: String,
-				default: 'yticon'
-			}
-		},
-		methods: {
-			eventClick() {
-				this.$emit('eventClick');
-			}
-		},
-	}
+export default {
+  data() {
+    return {
+      typeList: {
+        left: 'icon-zuo',
+        right: 'icon-you',
+        up: 'icon-shang',
+        down: 'icon-xia'
+      }
+    }
+  },
+  props: {
+    icon: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: '标题'
+    },
+    tips: {
+      type: String,
+      default: ''
+    },
+    navigateType: {
+      type: String,
+      default: 'right'
+    },
+    border: {
+      type: String,
+      default: 'b-b'
+    },
+    hoverClass: {
+      type: String,
+      default: 'cell-hover'
+    },
+    iconColor: {
+      type: String,
+      default: '#333'
+    },
+    iconFamily: {
+      type: String,
+      default: 'yticon'
+    }
+  },
+  methods: {
+    eventClick() {
+      this.$emit('eventClick')
+    }
+  }
+}
 </script>
 
 <style lang='scss'>
-	.icon .mix-list-cell.b-b:after {
-		left: 90upx;
-	}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-	.mix-list-cell {
-		display: flex;
-		align-items: center;
-		padding: 20upx 30upx;
-		line-height: 60upx;
-		position: relative;
+.icon .list-cell.b-b:after {
+  left: 90upx;
+}
 
-		&.cell-hover {
-			background: #fafafa;
-		}
+.list-cell {
+  position: relative;
+  @include center();
+  padding: 20upx 30upx;
 
-		&.b-b:after {
-			left: 30upx;
-		}
+  &.cell-hover {
+    background: #fafafa;
+  }
 
-		.cell-icon {
-			align-self: center;
-			width: 56upx;
-			max-height: 60upx;
-			font-size: 38upx;
-		}
+  .cell-icon {
+    width: 56upx;
+    max-height: 60upx;
+    font-size: 38upx;
+  }
 
-		.cell-more {
-			align-self: center;
-			font-size: 30upx;
-			margin-left: 2oupx;
-			color: #505050;
-		}
+  .cell-more {
+    font-size: 30upx;
+    margin-left: 2oupx;
+    color: #505050;
+  }
 
-		.cell-title {
-			flex: 1;
-			font-size: 28upx;
-			color: #303133;
-			margin-right: 10upx;
-		}
+  .cell-title {
+    flex: 1;
+    font-size: 28upx;
+    color: #303133;
+    margin-right: 10upx;
+  }
 
-		.cell-tip {
-			font-size: 24upx;
-			color: #505050;
-		}
-	}
+  .cell-tip {
+    font-size: 24upx;
+    color: #505050;
+  }
+}
 </style>
