@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="header">
-			<div class="pic">
+			<div class="pic" @click="toLoginPage">
     	  <img src="../../static/images/pic_person@2x_s1.png" alt />
 				<p class="txt">登录/注册</p>
 			</div>
@@ -42,6 +42,12 @@ export default {
 		goLink(url) {
 			uni.navigateTo({
 				url: url
+			})
+		},
+		// 跳转到login页面
+		toLoginPage() {
+			uni.navigateTo({
+				url: '/pages/login/login'
 			})
 		}
 	}
