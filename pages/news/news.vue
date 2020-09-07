@@ -103,6 +103,7 @@ export default {
 }
 .wrapper {
   padding: 15upx;
+  background: #fff;
   .item {
     margin-bottom: 10upx;
 	}
