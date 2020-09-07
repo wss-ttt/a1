@@ -41,10 +41,6 @@
 				"navigationBarTitleText": "",
 				"navigationBarBackgroundColor": "#5188E9"
 			}
-		},
-		{
-			"path": "components/list-cell/list-cell",
-			"style": {}
 		}
 	],
 	"globalStyle": {
