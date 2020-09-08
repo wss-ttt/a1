@@ -97,18 +97,18 @@
 				"selectedIconPath": "static/images/selectindex.png",
 				"text": "预约记录"
 			},
-			{
+			/* {
 				"pagePath": "pages/photo/photo",
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
 				"text": "相册"
-			},
-			{
+			}, */
+			/* {
 				"pagePath": "pages/test/test",
 				"iconPath": "static/images/index.png",
 				"selectedIconPath": "static/images/selectindex.png",
 				"text": "test"
-			},
+			}, */
 			{
 				"pagePath": "pages/my/my",
 				"iconPath": "static/images/index.png",
